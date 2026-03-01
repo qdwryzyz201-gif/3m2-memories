@@ -9,9 +9,35 @@
 body{
     margin:0;
     font-family: Arial, sans-serif;
-    background:linear-gradient(135deg,#000,#111,#000);
+    background:#000;
     color:white;
     text-align:center;
+    overflow-x:hidden;
+}
+
+/* ⭐ طبقة النجوم */
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:transparent;
+    z-index:-1;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:blink 2s infinite alternate;
+}
+
+@keyframes blink{
+    from{opacity:0.2;}
+    to{opacity:1;}
 }
 
 /* مطور */
@@ -105,7 +131,6 @@ h1{
     object-fit:cover;
 }
 
-/* اسم متلوّن */
 .name{
     margin-top:6px;
     font-size:14px;
@@ -121,7 +146,6 @@ h1{
     100%{filter:hue-rotate(360deg);}
 }
 
-/* رسالة */
 .footer{
     padding:15px;
     background:#000;
@@ -133,6 +157,9 @@ h1{
 
 <body>
 
+<!-- النجوم -->
+<div class="stars" id="stars"></div>
+
 <div class="dev">
 مطور الموقع: م. مانيني عمك
 </div>
@@ -142,7 +169,6 @@ h1{
     <div class="class-box">3M2</div>
 </header>
 
-<!-- صورة جماعية -->
 <div class="group">
     <img src="https://l.top4top.io/p_3711svjqn1.jpg">
 </div>
@@ -184,61 +210,32 @@ h1{
         </div>
     </div>
 
+    <!-- خديجة -->
+    <div class="card">
+        <div class="card-inner">
+            <img src="https://f.top4top.io/p_371135xh20.jpg">
+            <div class="name">✦ خديجة ✦</div>
+        </div>
+    </div>
+
 </div>
 
 <div class="footer">
 ✨ ذكريات لا تُنسى… قسم 3M2 سيبقى في القلب دائمًا ✨
 </div>
 
-</body>
-</html>.footer{
-    padding:20px;
-    background:#000;
-    color:#aaa;
-    font-size:14px;
+<script>
+/* توليد نجوم عشوائية */
+const starsContainer = document.getElementById("stars");
+for(let i=0;i<120;i++){
+    let star = document.createElement("div");
+    star.className="star";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDuration=(Math.random()*3+1)+"s";
+    starsContainer.appendChild(star);
 }
-</style>
-</head>
-
-<body>
-
-<div class="dev">
-مطور الموقع: م. مانيني عمك
-</div>
-
-<header>
-    <h1>ذكريات قسم</h1>
-    <div class="class-box">3M2</div>
-</header>
-
-<div class="container">
-
-    <div class="card">
-        <div class="card-inner">
-            <img src="https://e.top4top.io/p_3711en8g92.jpg">
-            <div class="name">Inas Inas</div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-inner">
-            <img src="https://d.top4top.io/p_37111psv31.jpg">
-            <div class="name">بلقاسم</div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-inner">
-            <img src="https://c.top4top.io/p_3711b7p4j0.jpg">
-            <div class="name">Lamin Tahshi</div>
-        </div>
-    </div>
-
-</div>
-
-<div class="footer">
-✨ أجمل الذكريات تبقى في القلب... قسم 3M2 إلى الأبد ✨
-</div>
+</script>
 
 </body>
 </html>
